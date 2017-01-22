@@ -28,20 +28,12 @@ public class ContactListViewImpl implements IContactListView {
 
     public Pair<ContactField, String> getContactToFind() throws IOException {
         displayMessage(findMessage);
-        int fieldIndex = Integer.parseInt(reader.readLine());
-        ContactField filed = ContactField.getField(fieldIndex);
-
-        String value = reader.readLine();
-        return new Pair<ContactField, String>(filed, value);
+        return getPair();
     }
 
     public Pair<ContactField, String> getContactToRemove() throws IOException {
         displayMessage(removeMessage);
-        int fieldIndex = Integer.parseInt(reader.readLine());
-        ContactField filed = ContactField.getField(fieldIndex);
-
-        String value = reader.readLine();
-        return new Pair<ContactField, String>(filed, value);
+        return getPair();
     }
 
     public void showAllContacts(List<Contact> contactList) {
@@ -89,6 +81,13 @@ public class ContactListViewImpl implements IContactListView {
         }
     }
 
-    //private Pair<ContactField, String>
+    private Pair<ContactField, String> getPair() throws IOException {
+        int fieldIndex = Integer.parseInt(reader.readLine());
+        ContactField filed = ContactField.getField(fieldIndex);
+
+        String value = reader.readLine();
+
+        return new Pair<ContactField, String>(filed, value);
+    }
     
 }
