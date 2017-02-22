@@ -10,7 +10,7 @@ import java.util.Properties;
 
 public class PropertyReader {
     private static final String PROPERTIES_PATHS = Paths.get(
-            "RadchenkoVitalii", "src", "resources", "application.properties").toString();
+             "application.properties").toString();
     private static Properties properties = new Properties();
 
     public static String readProperty(String propertyName) {
