@@ -1,5 +1,7 @@
 package client;
 
+import enums.Command;
+
 import java.io.*;
 import java.net.Socket;
 
@@ -28,7 +30,6 @@ public class Client {
         DataInputStream in = new DataInputStream(socket.getInputStream());
         DataOutputStream out = new DataOutputStream(socket.getOutputStream());
 
-
         out.writeUTF(clientName);
         out.flush(); // send client name
 
@@ -38,6 +39,8 @@ public class Client {
 
             out.writeUTF(message);
             out.flush(); // send client message
+
+            if (message.equals(Command.QUIT)) break;
 
             String response = in.readUTF();
             System.out.printf("server: %s\n", response);

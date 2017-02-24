@@ -76,7 +76,6 @@ public class WeatherServer extends Thread {
                 out.writeUTF(response);
                 out.flush();
             }
-
         } catch (IOException e) {
             logger.info(String.format(CLIENT_CONNECTION_CLOSED, clientName));
         }
